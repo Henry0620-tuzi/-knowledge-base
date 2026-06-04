@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI 行业客服 Q&A 知识库</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Customer Support Knowledge Base</p>
+          <h1>AI 行业客服 Q&A 知识库</h1>
+          <p class="subtitle">
+            面向 AI 产品、模型平台与开发者服务团队的统一问答库，覆盖模型能力、API 接入、计费、安全合规与企业采购场景。
+          </p>
+        </div>
+        <div class="hero-panel">
+          <div class="stat-card">
+            <span class="stat-label">当前问答数</span>
+            <strong id="total-count">0</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">分类数</span>
+            <strong id="category-count">0</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="controls">
+          <label class="search-box" for="search-input">
+            <span>搜索问题、关键词或回复内容</span>
+            <input
+              id="search-input"
+              type="search"
+              placeholder="例如：API Key、429、微调、知识库、数据安全"
+            />
+          </label>
+          <div class="filter-box">
+            <span>分类筛选</span>
+            <select id="category-select">
+              <option value="all">全部分类</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="tips">
+          <div class="tip-card">
+            <strong>使用建议</strong>
+            <p>先搜用户原话或报错码，再查看标准回复、排查方向和升级规则。</p>
+          </div>
+          <div class="tip-card">
+            <strong>维护建议</strong>
+            <p>优先补充模型选型、调用报错、计费争议和企业合规相关问题。</p>
+          </div>
+        </section>
+
+        <section class="results-head">
+          <h2>问答列表</h2>
+          <p id="result-summary">正在加载知识库...</p>
+        </section>
+
+        <section id="qa-list" class="qa-list" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <template id="qa-card-template">
+      <article class="qa-card">
+        <div class="qa-card-head">
+          <div>
+            <span class="qa-category"></span>
+            <h3 class="qa-intent"></h3>
+          </div>
+          <span class="qa-id"></span>
+        </div>
+
+        <div class="qa-section">
+          <h4>常见问法</h4>
+          <div class="qa-questions"></div>
+        </div>
+
+        <div class="qa-section">
+          <h4>标准回复</h4>
+          <p class="qa-answer"></p>
+        </div>
+
+        <div class="qa-section">
+          <h4>升级规则</h4>
+          <p class="qa-escalation"></p>
+        </div>
+
+        <div class="qa-footer">
+          <div class="qa-keywords"></div>
+          <button class="copy-button" type="button">复制标准回复</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="./data/qa-data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
